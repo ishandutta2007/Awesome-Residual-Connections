@@ -5,6 +5,11 @@
 # 🚀 Awesome-Residual-Connections
 ## ⛓️ Residual Connections: History, Progression, Variants, & Applications
 
+<p align="center">
+  <a href="https://github.com/ishandutta2007/Awesome-Awesome-Awesome"><img src="https://img.shields.io/badge/Awesome-%E2%9C%94-blueviolet?style=flat-square&logo=github" alt="Awesome"/></a>
+  <a href="https://discord.gg/jc4xtF58Ve"><img src="https://img.shields.io/badge/Discord-5865F2?style=for-the-badge&logo=discord&logoColor=white" alt="Discord" /></a>
+</p>
+
 A **Residual Connection**—alternatively designated as a shortcut connection, skip connection, or identity mapping—is a foundational architectural component in deep learning that bypasses one or more layers in a neural network graph to perform an elemental addition operation [INDEX: 1]. Originally conceptualized by Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun in 2015 ("Deep Residual Learning for Image Recognition"), residual connections provided the definitive mathematical resolution to the catastrophic **vanishing and exploding gradient problems** that placed an absolute ceiling on the depth of deep neural networks [INDEX: 1]. 
 
 Prior to this structural breakthrough, stacking layers past a depth of ~20 caused backpropagated error signals to decay exponentially as they traveled through sequential matrices, stalling optimization [INDEX: 1]. By hardwiring an unobstructed, non-parameterized linear identity highway ($y = F(x) + x$), residual connections allow error gradients to flow backward through infinite computational depths completely unaltered, unlocking the stable training of models containing hundreds of layers, and serving as a mandatory structural building block for modern Vision Learners and Large Language Models [INDEX: 1].
