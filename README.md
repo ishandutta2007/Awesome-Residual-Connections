@@ -1,5 +1,9 @@
-# Awesome-Residual-Connections
-## Residual Connections: History, Progression, Variants, & Applications
+<p align="center">
+  <img src="assets/banner.svg" alt="Awesome Residual Connections Banner" width="100%" />
+</p>
+
+# 🚀 Awesome-Residual-Connections
+## ⛓️ Residual Connections: History, Progression, Variants, & Applications
 
 A **Residual Connection**—alternatively designated as a shortcut connection, skip connection, or identity mapping—is a foundational architectural component in deep learning that bypasses one or more layers in a neural network graph to perform an elemental addition operation [INDEX: 1]. Originally conceptualized by Kaiming He, Xiangyu Zhang, Shaoqing Ren, and Jian Sun in 2015 ("Deep Residual Learning for Image Recognition"), residual connections provided the definitive mathematical resolution to the catastrophic **vanishing and exploding gradient problems** that placed an absolute ceiling on the depth of deep neural networks [INDEX: 1]. 
 
@@ -7,7 +11,7 @@ Prior to this structural breakthrough, stacking layers past a depth of ~20 cause
 
 ---
 
-## 1. The Macro Chronological Evolution
+## ⏳ 1. The Macro Chronological Evolution
 
 The implementation of residual shortcut mapping has transitioned from plain sequential feeds to linear identity shifts, unblocked pre-activations, and multi-node transformer-fused scaling parameters.
 
@@ -28,7 +32,7 @@ flowchart LR
 
 ---
 
-## 2. Core Functional & Structural Variants
+## 🧬 2. Core Functional & Structural Variants
 
 Residual connections are categorized based on how the shortcut maps input feature layouts and dimensions across different tensor spaces.
 
@@ -41,7 +45,7 @@ Residual connections are categorized based on how the shortcut maps input featur
 
 ---
 
-## 3. Deep Topology Extensions & Generalizations
+## 🕸️ 3. Deep Topology Extensions & Generalizations
 
 The mathematical properties discovered via residual skip connections have expanded into cross-layer density networks and continuous differential systems.
 
@@ -75,7 +79,7 @@ flowchart LR
 
 ---
 
-## 4. Production Engineering Challenges & Hardware Solutions
+## ⚙️ 4. Production Engineering Challenges & Hardware Solutions
 
 Implementing and scaling residual computations across modern hardware configurations introduces unique caching bottlenecks and tensor core synchronization boundaries.
 
@@ -86,7 +90,7 @@ Implementing and scaling residual computations across modern hardware configurat
 
 ---
 
-## 5. Frontier Real-World AI Applications
+## 🌐 5. Frontier Real-World AI Applications
 
 | Application | Details | First Used (Year) | First Used Paper |
 | :--- | :--- | :--- | :--- |
@@ -95,8 +99,8 @@ Implementing and scaling residual computations across modern hardware configurat
 | **[High-Resolution Clinical Volumetric Diagnostic Tracking](./details/clinical_volumetric_diagnostic.md)** | Processes massive multi-megapixel medical scans (such as MRIs, CT volumes, and digital pathology slides). Symmetrical residual encoder-decoder graphs (U-Net variants) automate pixel-level tumor tracking, helping radiologists isolate pathologically dangerous boundaries with sub-millimeter precision. | 2015 | [U-Net: Convolutional Networks for Biomedical Image Segmentation (Ronneberger et al., 2015)](https://arxiv.org/abs/1505.04597) |
 
 ---
+## 📚 References
 
-## References
 1. Srivastava, R. K., Greff, K., & Schmidhuber, J. (2015). Highway networks. *arXiv preprint arXiv:1505.00387*.
 2. He, K., Zhang, X., Ren, S., & Sun, J. (2016). Deep residual learning for image recognition. *Proceedings of the IEEE Conference on Computer Vision and Pattern Recognition (CVPR)*, 770-778 [INDEX: 1].
 3. He, K., Zhang, X., Ren, S., & Sun, J. (2016). Identity mappings in deep residual networks. *European Conference on Computer Vision (ECCV)*, 630-645 [INDEX: 1].
