@@ -33,21 +33,21 @@ The implementation of residual shortcut mapping has transitioned from plain sequ
 
 Residual connections are categorized based on how the shortcut maps input feature layouts and dimensions across different tensor spaces.
 
-### A. Linear Identity Shortcuts (Non-Parameterized Mapping)
-*   **Mechanism:** The absolute purest formulation. The shortcut vector is a direct copy of the input tensor, requiring zero learnable parameters: $y = F(x) + x$ [INDEX: 1].
-*   **Condition:** Requires the spatial dimensions and channel width of the input $x$ to match the output dimension of the weight block $F(x)$ exactly [INDEX: 1].
+- ### A. Linear Identity Shortcuts (Non-Parameterized Mapping)
+	*   **Mechanism:** The absolute purest formulation. The shortcut vector is a direct copy of the input tensor, requiring zero learnable parameters: $y = F(x) + x$ [INDEX: 1].
+	*   **Condition:** Requires the spatial dimensions and channel width of the input $x$ to match the output dimension of the weight block $F(x)$ exactly [INDEX: 1].
 
-### B. Projection Residual Shortcuts (Parameterized Downsampling)
-*   **Mechanism:** Enforced when an architecture downsizes its spatial canvas or doubles its channel depth (e.g., moving between transition blocks in a ResNet) [INDEX: 1]. The shortcut inserts a learnable linear projection matrix ($W_s$)—typically a $1 \times 1$ convolution with a stride of 2—to mathematically morph the dimensions of $x$ to match the main path before addition:
-    $$y = F(x) + W_s x$$
+- ### B. Projection Residual Shortcuts (Parameterized Downsampling)
+	*   **Mechanism:** Enforced when an architecture downsizes its spatial canvas or doubles its channel depth (e.g., moving between transition blocks in a ResNet) [INDEX: 1]. The shortcut inserts a learnable linear projection matrix ($W_s$)—typically a $1 \times 1$ convolution with a stride of 2—to mathematically morph the dimensions of $x$ to match the main path before addition:
+	    $$y = F(x) + W_s x$$
 
-### C. Gated Residual Connections (Stochastic Depth / Highway Networks)
-*   **Mechanism:** Preceded and informed standard ResNets. It adds a learnable gating parameter ($\mathbf{T}$) to dynamically scale the influence of the identity pass: $y = F(x) \cdot \mathbf{T}(x) + x \cdot (1 - \mathbf{T}(x))$.
-*   **Downstream Application:** Modernized into **Stochastic Depth training schedules**, randomly dropping full residual blocks entirely during training epochs to regularize parameters while keeping the identity trunk intact.
+- ### C. Gated Residual Connections (Stochastic Depth / Highway Networks)
+	*   **Mechanism:** Preceded and informed standard ResNets. It adds a learnable gating parameter ($\mathbf{T}$) to dynamically scale the influence of the identity pass: $y = F(x) \cdot \mathbf{T}(x) + x \cdot (1 - \mathbf{T}(x))$.
+	*   **Downstream Application:** Modernized into **Stochastic Depth training schedules**, randomly dropping full residual blocks entirely during training epochs to regularize parameters while keeping the identity trunk intact.
 
-### D. Pre-LN vs. Post-LN Transformer Paths
-*   **Post-LN (Classic Transformer):** $\text{Layer}(x) = \text{LayerNorm}(x + \text{SubLayer}(x))$. This layout requires meticulous learning rate warmup tuning, as gradients near the output layer explode relative to early blocks.
-*   **Pre-LN (Modern Production LLM):** $\text{Layer}(x) = x + \text{SubLayer}(\text{LayerNorm}(x))$. This structure stabilizes optimization, allowing massive multi-node training runs to initiate safely at maximum learning rate velocity without warmup delays.
+- ### D. Pre-LN vs. Post-LN Transformer Paths
+	*   **Post-LN (Classic Transformer):** $\text{Layer}(x) = \text{LayerNorm}(x + \text{SubLayer}(x))$. This layout requires meticulous learning rate warmup tuning, as gradients near the output layer explode relative to early blocks.
+	*   **Pre-LN (Modern Production LLM):** $\text{Layer}(x) = x + \text{SubLayer}(\text{LayerNorm}(x))$. This structure stabilizes optimization, allowing massive multi-node training runs to initiate safely at maximum learning rate velocity without warmup delays.
 
 ---
 
