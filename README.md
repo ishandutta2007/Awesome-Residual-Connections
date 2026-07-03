@@ -11,7 +11,7 @@ Prior to this structural breakthrough, stacking layers past a depth of ~20 cause
 
 The implementation of residual shortcut mapping has transitioned from plain sequential feeds to linear identity shifts, unblocked pre-activations, and multi-node transformer-fused scaling parameters.
 
-```
+```mermaid
 [Plain Stacked Layouts (Pre-2015)] ───> [Post-Activation ResNet (2015)] ───> [Pre-Activation ResNet-v2 (2016)] ───> [Pre-LayerNorm Transformers (Modern Era)](Catastrophic Gradient Decay Wall)      (Linear Identity Addition Logic)        (Completely Unobstructed Gradient Paths)      (Stable Scale-Invariant LLM Backbones)
 ```
 
@@ -55,7 +55,7 @@ Residual connections are categorized based on how the shortcut maps input featur
 
 The mathematical properties discovered via residual skip connections have expanded into cross-layer density networks and continuous differential systems.
 
-```
+```mermaid
 Symmetrical Lateral Skip (U-Net)                 Continuous Vector Field (Neural ODEs)Encoder (x) ──────────┐                            Input: x(t₀)│                 │                                │Downsample     Skip Connection (Residual)              │  Continuous Integration Loop▼                 ▼                                │  dh(t)/dt = f(h(t), t, θ)Decoder (y) <─── [ Combine ]                           ▼Output: x(t₁)
 ```
 
